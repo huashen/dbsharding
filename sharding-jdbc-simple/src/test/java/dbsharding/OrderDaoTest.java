@@ -1,6 +1,7 @@
 package dbsharding;
 
 import dbsharding.dao.OrderDao;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
 
 /**
  * OrderDaoTest
@@ -27,4 +30,11 @@ public class OrderDaoTest {
         orderDao.insertOrder(new BigDecimal(11), 1L, "SUCCESS");
     }
 
+    @Test
+    public void testFind() {
+        List<Long> ids = Lists.newArrayList();
+        ids.add(635906974575230977L);
+        ids.add(635943066473070592L);
+        List<Map> maps = orderDao.selectOrderByIds(ids);
+    }
 }
