@@ -27,7 +27,9 @@ public class OrderDaoTest {
 
     @Test
     public void testInsertOrder() {
-        orderDao.insertOrder(new BigDecimal(11), 1L, "SUCCESS");
+        for (int i = 0; i < 10; i++) {
+            orderDao.insertOrder(new BigDecimal(11), 1L, "SUCCESS");
+        }
     }
 
     @Test
